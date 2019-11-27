@@ -14,6 +14,9 @@ pipeline {
             agent {
                 label 'pr_agent'
             }
+            environment {
+                JAVA_HOME = "C:\Program Files\Java\jdk1.8.0_201"
+            }
         }
     }
 }
