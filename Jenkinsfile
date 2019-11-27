@@ -1,9 +1,5 @@
 pipeline {
     agent any
-    tools {
-        maven "Default"
-        jdk 'Default'
-    }
     stages {
         stage('record test') {
             steps {
@@ -13,6 +9,10 @@ pipeline {
             }
             agent {
                 label 'pr_agent'
+            }
+            tools {
+                maven "pr_mvn"
+                jdk 'pr_jdk'
             }
         }
     }
