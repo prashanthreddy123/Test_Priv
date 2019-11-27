@@ -11,6 +11,9 @@ pipeline {
                 bat "mvn clean test"
                 junit 'target/surefire-reports/*.xml'
             }
+            agent {
+                label 'pr_agent'
+            }
         }
     }
 }
