@@ -5,8 +5,12 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Test;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 public class RegistrationTest {
@@ -14,9 +18,12 @@ public class RegistrationTest {
   JavascriptExecutor js;
 
   @Test
-  public void save() throws InterruptedException {
-    System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver.exe");
-    driver = new ChromeDriver();
+  public void whygreneRegistrationTest() throws InterruptedException, MalformedURLException {
+    DesiredCapabilities dc=new DesiredCapabilities().chrome();
+    dc.setBrowserName("chrome");
+    dc.setPlatform(Platform.WINDOWS);
+    URL url=new URL("http://172.17.4.154:4444/wd/hub");
+    RemoteWebDriver driver=new RemoteWebDriver(url,dc);
     js = (JavascriptExecutor) driver;
     String email= RandomStringUtils.randomAlphabetic(8)+"@gmail.com";
     System.out.println("email is "+email);
