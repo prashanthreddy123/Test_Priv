@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('record test') {
             steps {
-                git 'https://github.com/nagarjunagr8/testsuite.git'
+                git 'https://github.com/prashanthreddy123/Test_Priv.git'
                 bat "mvn clean test"
                 junit 'target/surefire-reports/*.xml'
             }
